@@ -22,3 +22,6 @@ class CourseAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ModuleInLine]
 
+
+# use memcache admin index site
+admin.site.index_template = 'memcache_status/admin_index.html'
