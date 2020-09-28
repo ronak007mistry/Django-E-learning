@@ -66,5 +66,3 @@ class StudentCourseDetailView(DetailView):
             # get first module
             context['module'] = course.modules.all()[0]
         return context
-
-

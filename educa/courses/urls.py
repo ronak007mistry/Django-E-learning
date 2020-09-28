@@ -19,8 +19,8 @@ urlpatterns = [
          name='course_delete'),
 
     path('<pk>/module/',
-         views.CourseModuleUpdateView.as_view(),
-         name='course_module_update'),
+     views.CourseModuleUpdateView.as_view(),
+     name='course_module_update'),
 
     path('module/<int:module_id>/content/<model_name>/create/',
          views.ContentCreateUpdateView.as_view(),
@@ -53,7 +53,4 @@ urlpatterns = [
     path('<slug:slug>/',
          views.CourseDetailView.as_view(),
          name='course_detail'),
-
 ]
-
-

@@ -1,8 +1,10 @@
 from django.contrib import admin
 from .models import Subject, Course, Module
+from django.contrib import admin
 
+# use memcache admin index site
+admin.site.index_template = 'memcache_status/admin_index.html'
 
-# Register your models here.
 
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
@@ -10,7 +12,7 @@ class SubjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
-class ModuleInLine(admin.StackedInline):
+class ModuleInline(admin.StackedInline):
     model = Module
 
 
@@ -20,8 +22,4 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = ['created', 'subject']
     search_fields = ['title', 'overview']
     prepopulated_fields = {'slug': ('title',)}
-    inlines = [ModuleInLine]
-
-
-# use memcache admin index site
-admin.site.index_template = 'memcache_status/admin_index.html'
+    inlines = [ModuleInline]
